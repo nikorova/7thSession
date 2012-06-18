@@ -2,17 +2,19 @@ $(document).ready(function() {
 	$("a").hover(function() {
 			$(this).toggleClass("hovering");
 		});
-
-	$(".turn").on('hover', 'li', function() {
-		$(this).toggleClass("hovering");
-	});
-
-	$(".button").mousedown(function() {
+	
+	$("button").mousedown(function() {
 		$(this).addClass("depressed");
 	});
 	
-	$(".button").mouseup(function() {
+	$("button").mouseup(function() {
 		$(this).removeClass("depressed");
+	});
+
+	$("li.selector_bar").hide();
+	$("#selector").children().first().show();
+
+	$("#next_phase").on("click", function() {
 	});
 
 	$("#new_actor_button").on('click', function() {
@@ -21,12 +23,13 @@ $(document).ready(function() {
 
 	$("#new_actor_form").on('submit', function(e) {
 		e.preventDefault();
+
 		var form_data = [];
-	
 		form_data.name = $("#name").val();
 		form_data.panache = $("#panache").val();
 		
 		generateTurn(form_data);
+
 		$("#new_form_panel").hide();
 		$(this).each(function() {this.reset();});
 	});
@@ -37,11 +40,13 @@ $(document).ready(function() {
 });
 
 function generateTurn(data) {
+	// get init dice
 	var init = rollNKeep(data.panache);	
+
 	$("#turn_panel").append(
 		'<div class="turn_instance">'+
-			'<h3 id="player_title">'+data.name+' <span class="delete_turn">X</span></h3>'+
-			'<ul class="turn" id="'+data.name+'">'+ 
+			'<h3 id="player_title">'+data.name+'  '+init+'</h3>'+
+			'<ul class="turn" id="'+data.name.replace(/ /g, "_")+'">'+ 
 				'<li class="phase" id="phase1">1</li>'+
 				'<li class="phase" id="phase2">2</li>'+
 				'<li class="phase" id="phase3">3</li>'+
@@ -54,9 +59,9 @@ function generateTurn(data) {
 				'<li class="phase" id="phase10">10</li>'+
 			'</ul>'+
 		'</div>');
-	for (initDie in init) {
-		$("ul#"+data.name).find("#phase"+initDie).addClass("in_phase");
-	}
+	$.each(init, function(_i, initDie) {	
+		$("ul#"+data.name.replace(/ /g,"_")).find("li#phase"+initDie).addClass("in_phase");
+	});
 }
 
 Array.prototype.sortNum = function() {
@@ -71,13 +76,12 @@ function rollNKeep(r, k) {
 	// generate dice array
 	var dice = [];
 	for (i = 0; i < r; i++) {
-		var die = Math.floor((Math.random() * 10));	
+		var die = 1 + Math.floor((Math.random() * 10));	
 		dice.push(die);		
 	}
 	
 	// pick keepers
 	kept = dice.sortNum().slice(r-k);
 
-	document.writeln(kept);
 	return kept;
 }
