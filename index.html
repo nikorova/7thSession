@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>7th Session</title>
+<link rel="stylesheet" type="text/css" href="css/7thSession.css" />
+<script type="application/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="application/javascript" src="js/7thSession.js"></script>
+</head>
+<body>
+
+<div id="container">
+	<!-- Control Panel -->
+	<div id="control_panel"> 
+		<div id="button_bar">
+			<div id="prev_phase" class="button">
+				<span>Prev Phase</span>
+			</div>
+			<div id="next_phase" class="button">
+				<span>Next Phase</span>
+			</div>
+			<div id="prev_turn" class="button">
+				<span>Prev Turn</span>
+			</div>
+			<div id="next_turn" class="button">
+				<span>Next Turn</span>
+			</div>
+			<div id="new_actor_button" class="button">
+				<span>New Actor</span>
+			</div>
+		</div>
+		<br />
+	
+	<!-- New Turn Instance Form Panel -->
+	<div id="new_form_panel" class="">
+		<form id="new_actor_form"> 
+			<fieldset>
+			  <legend> Create New Actor </legend>
+			<label for="name"> Name: </label>
+			  <input type="text" 
+				name="name" 
+				id="name" 
+				required 
+				autofocus
+				placeholder="Name of involved party or person"/>
+			  <br />
+			<label for="panache"> Panache: </label>
+			  <input type="number" 
+				id="panache"
+				name="panache" 
+				min="0" max="7" 
+				value="0" />
+
+			<br />
+			<label for="actor_type"> Type: </label>
+			<br />
+			  <input type="radio" 
+				name="actor_type"
+				id="actor_type_radio"
+				value="player"> Player </input>
+			<br />
+			  <input type="radio"
+				name="actor_type"
+				id="actor_type_radio"
+				value="brute_squad"> Brute Squad </input>
+
+			<br />
+			<button type="sumbit"> Create </button>
+			<button id="dismiss_new_actor_form"> Dismiss </button>
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div id="turn_panel">
+	<div class="header">
+	    <h2>Turn by Phase</h2> 
+	</div>
+</div>
+
+<div class="footer">
+	<a href="http://www.crystalkeep.com/7thsea/index.php">Crystal Keep</a>
+	<a href="http://www.crystalkeep.com/7thsea/rules/Blank%20Character.pdf">Character Sheet PDF</a>
+	<a href=""> </a>
+</div>
+</div>
+</body>
+</html>
+
+
+
