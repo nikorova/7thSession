@@ -10,7 +10,6 @@
 <body>
 
 <div id="container">
-	<!-- Control Panel -->
 	<div id="control_panel"> 
 		<div id="button_bar">
 			<button id="prev_phase" class="">
@@ -28,76 +27,80 @@
 			<button id="new_actor_button" class="button">
 				<span>New Actor</span>
 			</button>
-		</div>
+		</div><!-- /BUTTON_BAR -->
 		<br />
-	
-	<!-- New Turn Instance Form Panel -->
-	<div id="new_form_panel" class="">
-		<form id="new_actor_form"> 
-			<fieldset>
-			  <legend> Create New Actor </legend>
-			<label for="name"> Name: </label>
-			  <input type="text" 
-				name="name" 
-				id="name" 
-				required 
-				autofocus
-				placeholder="Name of involved party or person"/>
-			  <br />
-			<label for="panache"> Panache: </label>
-			  <input type="number" 
-				id="panache"
-				name="panache" 
-				min="0" max="7" 
-				value="0" />
 
-			<br />
-			<label for="actor_type"> Type: </label>
-			<br />
-			  <input type="radio" 
-				name="actor_type"
-				id="actor_type_radio"
-				value="player"> Player </input>
-			<br />
-			  <input type="radio"
-				name="actor_type"
-				id="actor_type_radio"
-				value="brute_squad"> Brute Squad </input>
+		<div id="new_form_panel" class="">
+			<form id="new_actor_form"> 
+				<fieldset>
+					<legend> Create New Actor </legend>
+					<label for="name"> Name: </label>
+					<input type="text" 
+					name="name" 
+					id="name" 
+					required 
+					autofocus
+					placeholder="Name of involved party or person"/>
+					<br />
 
-			<br />
-			<button type="sumbit"> Create </button>
-			<button id="dismiss_new_actor_form"> Dismiss </button>
-			</fieldset>
-		</form>
-	</div>
-</div>
-<div id="turn_panel">
-	<div class="header">
-	    <h2>Turn by Phase</h2> 
-	</div>
-	<div id="selector_panel">
-	<ul id="selector">
-		<li id="selector_bar1" class="selector_bar"></li>
-		<li id="selector_bar2" class="selector_bar"></li>
-		<li id="selector_bar3" class="selector_bar"></li>
-		<li id="selector_bar4" class="selector_bar"></li>
-		<li id="selector_bar5" class="selector_bar"></li>
-		<li id="selector_bar6" class="selector_bar"></li>
-		<li id="selector_bar7" class="selector_bar"></li>
-		<li id="selector_bar8" class="selector_bar"></li>
-		<li id="selector_bar9" class="selector_bar"></li>
-		<li id="selector_bar10" class="selector_bar"></li>
-	</ul>
-	</div>
-	<div class="turn_instance"><h3 id="player_title">francis crawford of lymond  2,8,10</h3><ul id="francis_crawford_of_lymond" class="turn"><li id="phase1" class="phase"></li><li id="phase2" class="phase in_phase"></li><li id="phase3" class="phase"></li><li id="phase4" class="phase"></li><li id="phase5" class="phase"></li><li id="phase6" class="phase"></li><li id="phase7" class="phase"></li><li id="phase8" class="phase in_phase"></li><li id="phase9" class="phase"></li><li id="phase10" class="phase in_phase"></li></ul></div>
-</div>
+					<label for="panache"> Panache: </label>
+					<input type="number" 
+					id="panache"
+					name="panache" 
+					min="0" max="7" 
+					value="0" />
+					<br />
 
-<div class="footer">
-	<a href="http://www.crystalkeep.com/7thsea/index.php">Crystal Keep</a>
-	<a href="http://www.crystalkeep.com/7thsea/rules/Blank%20Character.pdf">Character Sheet PDF</a>
-	<a href=""> </a>
-</div>
-</div>
+					<label for="actor_type"> Type: </label>
+					<br />
+
+					<input type="radio" 
+					name="actor_type"
+					id="actor_type_radio"
+					value="player"> Player </input>
+					<br />
+					
+					<input type="radio"
+					name="actor_type"
+					id="actor_type_radio"
+					value="brute_squad"> Brute Squad </input>
+					<br />
+
+					<button type="sumbit"> Create </button>
+					<button id="dismiss_new_actor_form"> Dismiss </button>
+				</fieldset>
+			</form>
+		</div><!-- /NEW_FORM_PANEL -->
+	</div><!-- /CONTROL_PANEL -->
+	<div id="turn_panel">
+		<div class="header">
+			<h2>Turn by Phase</h2> 
+		</div>
+		<div id="selector_panel">
+			<ul id="selector">
+				<li id="selector_bar1" class="selector_bar"></li>
+				<li id="selector_bar2" class="selector_bar"></li>
+				<li id="selector_bar3" class="selector_bar"></li>
+				<li id="selector_bar4" class="selector_bar"></li>
+				<li id="selector_bar5" class="selector_bar"></li>
+				<li id="selector_bar6" class="selector_bar"></li>
+				<li id="selector_bar7" class="selector_bar"></li>
+				<li id="selector_bar8" class="selector_bar"></li>
+				<li id="selector_bar9" class="selector_bar"></li>
+				<li id="selector_bar10" class="selector_bar"></li>
+			</ul>
+		</div>
+		<!-- TESTING -->
+		<div class="turn_instance"><h3 id="player_title">francis crawford of lymond  2,8,10</h3><ul id="francis_crawford_of_lymond" class="turn"><li id="phase1" class="phase"></li><li id="phase2" class="phase in_phase"></li><li id="phase3" class="phase"></li><li id="phase4" class="phase"></li><li id="phase5" class="phase"></li><li id="phase6" class="phase"></li><li id="phase7" class="phase"></li><li id="phase8" class="phase in_phase"></li><li id="phase9" class="phase"></li><li id="phase10" class="phase in_phase"></li></ul></div><!-- /TESTING -->
+	</div><!-- /TURN_PANEL -->
+		
+
+	<div class="footer">
+		<a href="http://www.crystalkeep.com/7thsea/index.php">Crystal Keep</a>
+		<a href="http://www.crystalkeep.com/7thsea/rules/Blank%20Character.pdf">Character Sheet PDF</a>
+		<a href="http://google.com">A Helpful Link to Google </a>
+	</div><!-- /FOOTER -->
+</div><!-- /CONTAINER -->
 </body>
 </html>
 
