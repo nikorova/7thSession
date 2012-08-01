@@ -4,179 +4,82 @@
 <html>
 
 <head>
-	<title>7thSession</title>
-	<script type="application/javascript" src="js/jquery-1.7.2.js"></script>
-	<script type="application/javascript" src="js/session.js"></script>
-	<style> 
-		body {
-			margin: 0;
-			padding: 0;
-			height: 100%;
-			background-color: #D1C396;
-			font-family: monospace;
-			font-size: 14px;
-		}
-		
-		#splash_title {
-			margin: 0px;
-			opacity: .28;
-			color: #1C0F05;
-			position: fixed;	
-			left: 750px;
-			bottom: 300px;
-			-web-kit-transform: rotate(90deg);
-			-moz-transform: rotate(90deg);
-			text-shadow: -1px -1px 0px #3D2A1B, 
-				0px 1px 0px #190E05;
-			font-size: 50px;
-			z-index: -1;
-		}
-
-		#footer_bar ul{
-			margin-left: 240px;
-			opacity: .5;
-			z-index: 2;
-			min-width: 600px;
-				
-		}
-
-		.splash_bar {
-			height: 75px;		
-			box-shadow: 0px -2px 1px #190E05;
-		}
-
-		#splash_light {
-			margin-left: 220px;
-			position: fixed;	
-			width: 100%;
-			right: 0;
-			bottom: 0;
-			background-color: #D1C396;
-		}
-
-		#splash_dark {
-			width: 220px;
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			z-index: 2;
-			background-color: #261507;	
-			border-right: 12px solid #352110;
-		}
-
-		/* le control panel */
-		#control_panel {
-			position: fixed;
-			left: 0;
-			top: 0;
-			padding: 0;
-			padding-top: 40px;
-			width: 220px;
-			height: 100%;
-			color: ;
-			background-color: #261507;
-			border-right: 12px solid #352110;
-			box-shadow: 0px 0px 0px #070401; 
-				
-		}
-
-		button {
-			height: 40px;
-			width: 210px;
-			background-color: #1C6A6F;
-			font-size: 18px;
-			font-weight: bold;
-			margin-top: 10px;
-			border-bottom-right-radius: 12px;
-			border: none;
-			border-bottom: 6px solid #258489;
-			box-shadow: 2px 2px 1px #190E05;
-			z-index: 3;
-		}
-		
-		#next_phase {
-			text-align: right;
-		}
-
-		#prev_phase {
-			text-align: left;
-		}
-
-		#new_actor {
-			text-align: center;
-		}
-	
-		
-		/* le actor div */
-		.actor h3 {
-			margin-left: 25px;
-		}
-
-		.actor{
-			padding-top: 3px;
-			margin-right: 40px;
-			margin-left: 240px; 
-			margin-bottom: 10px;
-			margin-top: 0px;
-			min-width: 620px;
-			max-width: 750px;
-			border-top-left-radius: 20px;
-			border-bottom-right-radius: 20px;
-			border-bottom: 10px solid #E8FCF0;
-			box-shadow: 2px 2px 1px #190E05;
-			background-color: #DAEDE2;
-		}
-		
-		.phase_block {
-			height: 35px;
-			width: 40px;
-			display: inline-block;
-			outline: 1px solid #333;
-			text-align: center;
-			margin-right: 10px;
-			background-color: #B3B597;
-		}
-		
-		/* le phase indicator bar */
-		#indicator_bar {
-			height: 100%;
-			width: 42px;
-			position: fixed;
-			background-color: #1F7A7F;
-			opacity: .4;
-			z-index: 3;
-			display: block;
-		}
-	</style>
+<title>7thSession</title>
+<script type="application/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="application/javascript" src="js/session.js"></script>
+<link rel="stylesheet" type="text/css" href="css/7thSession.css"></link> 
 
 </head>
 
 <body>
-
 <div id="indicator_bar">
 </div>
 
-<div id="control_panel"> 
-	<button id="next_phase">
-		Next Phase
-	</button>
-	<button id="prev_phase">
-		Prev Phase
-	</button>
-	<button id="new_actor">
-		New Actor	
-	</button>
-</div>
+<div id="wrapper">
+	<div id="control_panel"> 
+		<button id="next_phase">
+			Next Phase
+		</button>
+		<button id="prev_phase">
+			Prev Phase
+		</button>
+		<button id="new_actor">
+			New Actor	
+		</button>
 
-<span id="splash_title">
-	<h1>7thSession</h1>
-</span>
+		<form id="actor_form">
+			<fieldset>
+				<legend>
+					<h3> New Actor </h2>
+				</legend>
 
-<div id="footer_bar">
-	<div id="splash_dark" class="splash_bar">
+				<label for="name">Name</label>
+				<input id="name" 
+				name="name"
+				type="text"
+				required="true"></input>
+
+
+				<label for="panache">Panache</label>
+				<input id="panache"
+				name="panache"
+				type="number"
+				max="7"
+				required="true"></input>
+
+				<input id="actor_form_submit"
+				type="submit"
+				value="Create"></input>
+			</fieldset>	
+		</form>
 	</div>
-	<div id="splash_light" class="splash_bar">
-		<ul id="guide" class="phase_list">
+
+	<span id="splash_title">
+		<h1>7thSession</h1>
+	</span>
+
+	<div id="footer">
+		<div id="splash_dark" class="splash_bar">
+		</div>
+		<div id="splash_light" class="splash_bar">
+			<ul id="phase_guide" class="phase_list">
+				<li id="1" class="phase_block">1</li>
+				<li id="2" class="phase_block">2</li>
+				<li id="3" class="phase_block">3</li>
+				<li id="4" class="phase_block">4</li>
+				<li id="5" class="phase_block">5</li>
+				<li id="6" class="phase_block">6</li>
+				<li id="7" class="phase_block">7</li>
+				<li id="8" class="phase_block">8</li>
+				<li id="9" class="phase_block">9</li>
+				<li id="10" class="phase_block">10</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="actor" id="1">
+		<h3>Yar here's an actor</h3>
+		<ul class="phase_list">
 			<li id="1" class="phase_block">1</li>
 			<li id="2" class="phase_block">2</li>
 			<li id="3" class="phase_block">3</li>
@@ -189,162 +92,8 @@
 			<li id="10" class="phase_block">10</li>
 		</ul>
 	</div>
-</div>
 
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
 </div>
-
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-<div class="actor" id="1">
-	<h3>Yar here's an actor</h3>
-	<ul class="phase_list">
-		<li id="1" class="phase_block">1</li>
-		<li id="2" class="phase_block">2</li>
-		<li id="3" class="phase_block">3</li>
-		<li id="4" class="phase_block">4</li>
-		<li id="5" class="phase_block">5</li>
-		<li id="6" class="phase_block">6</li>
-		<li id="7" class="phase_block">7</li>
-		<li id="8" class="phase_block">8</li>
-		<li id="9" class="phase_block">9</li>
-		<li id="10" class="phase_block">10</li>
-	</ul>
-</div>
-
-
-
 </body>
 
 </html>

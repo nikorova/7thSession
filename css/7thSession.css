@@ -1,65 +1,145 @@
-html { 
-	height: 100%;
-}
-
 body {
-	background-color: #6E7E7D;	
-	font-family: monospace; 
-	font-size: 14px;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 	height: 100%;
+	font-family: monospace;
+	font-size: 14px;
 }
 
-ul#links {
-	list-style-image: none;
-	list-style-type: none;
-}
-
-#links_panel {
-	position: absolute;
-	left: 65;
-	bottom: 0;
-	width: 20%;
-}
-
-#container {
-	margin: 20px auto 0px auto;
-	background-color: #7B9386;	
-	width: 90%;
-	height: 100%;
-	box-shadow: 0 0 2px 2px #192318;
-}
-
-/* control panel */
-#control_panel {
-	width: 20%;
-	height: 80%;
-	float: left;
-}
-
-#button_bar {
-	height: 210px;
+#wrapper {
+	height: 100%;	
 	width: 100%;
+	margin: auto;
+	position: fixed;
+	background-color: #D1C396;
+	
 }
 
-#control_panel button {
-	padding: 5px 5px 5px 5px;
-	margin: 10px 0px 0px 0px;
-	height: 34px;
-	width: 204px;
-	background-color: #9FC5E9;
-	outline: none;
-	border: none;
-	font-size: 16px;
+#splash_title {
+	margin: 0px;
+	opacity: .10;
+	color: #1C0F05;
+	position: fixed;	
+	left: 750px;
+	bottom: 300px;
+	-web-kit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	text-shadow: -1px -1px 0px #3D2A1B, 
+	0px 1px 0px #190E05;
+	font-size: 50px;
+}
+
+#footer ul{
+	margin-left: 240px;
+	opacity: .5;
+	z-index: 2;
+	min-width: 600px;
+
+}
+
+.splash_bar {
+	height: 75px;		
+	box-shadow: 0px -2px 1px #190E05;
+}
+
+#splash_light {
+	margin-left: 220px;
+	position: fixed;	
+	width: 100%;
+	right: 0;
+	bottom: 0;
+	background-color: #D1C396;
+}
+
+#splash_dark {
+	width: 220px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	background-color: #261507;	
+	border-right: 12px solid #352110;
+}
+
+/* le control panel */
+#control_panel {
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding: 0;
+	padding-top: 40px;
+	width: 220px;
+	height: 100%;
+	color: ;
+	background-color: #261507;
+	border-right: 12px solid #352110;
+	box-shadow: 0px 0px 0px #070401; 
+
+}
+
+#actor_form_submit, button {
+	height: 40px;
+	width: 210px;
+	background-color: #1C6A6F;
+	font-size: 18px;
 	font-weight: bold;
+	margin-top: 10px;
+	border-bottom-right-radius: 12px;
+	border: none;
+	border-bottom: 6px solid #258489;
+	box-shadow: 2px 2px 1px #190E05;
+	z-index: 3;
+}
+
+#actor_form {
+	margin-top: 10px;
+}
+
+#actor_form fieldset {
+	padding: 0px;
+	border: none;
+}
+
+#actor_form legend h3 {
+	margin: 0px;
+	margin-bottom: 5px;
+	padding: 0px;
+	color: #D1C396;
+	font-size: 24px;
+	margin-left: 10px;
+	text-shadow: 3px 3px 1px #190E05; 
+}
+
+#actor_form h2, label, input {
+	margin-left: 10px;
+}
+
+#actor_form h2, label {
+	color: #D1C396;
+	text-shadow: 3px 3px 1px #190E05; 
+}
+
+#actor_form label {
+	font-size: 20px;
+}
+
+#name, #panache {
+	height: 25px;
+	width: 190px;
+	font-size: 20px;
+	background-color: #DAEDE2;
+	box-shadow: 3px 3px 1px #190E05; 
+	border: none;
+}
+
+#actor_form_submit {
+	margin-top: 15px;
+	width: 190px;
+	height: 30px;
+	border-bottom-left-radius: 12px;
 }
 
 #next_phase {
-	text-align: right;
-}
-
-#next_turn {
 	text-align: right;
 }
 
@@ -67,114 +147,55 @@ ul#links {
 	text-align: left;
 }
 
-#prev_turn {
-	text-align: left;
-}
-
-#new_actor_button {
+#new_actor {
 	text-align: center;
 }
 
 
-
-/* new actor form */
-#new_form_panel {
-	padding: 10px 0px 10px 0px;
-	margin: 10px 0px;
-	width: 100%;
-	display: none;
-	background-color: #9FC5E9;
+/* le actor div */
+.actor h3 {
+	margin-left: 25px;
 }
 
-form#new_actor_form fieldset{
-	font-size: 16px;
-	font-weight: bold;
-	border: none;	
+.actor{
+	padding-top: 3px;
+	margin-right: 40px;
+	margin-left: 240px; 
+	margin-bottom: 10px;
+	margin-top: 0px;
+	min-width: 620px;
+	max-width: 750px;
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom: 10px solid #E8FCF0;
+	box-shadow: 2px 2px 1px #190E05;
+	background-color: #DAEDE2;
 }
 
-form#new_actor_form label {
-	float: left;
-	width: 40%;
+.phase_list {
 }
 
-form#new_actor_form input:not([type=radio]) {
-	width: 80%;
-	height: 15px;
-	background: #E8E6BD;
-	border: none;
-	outline: none;
-	padding: 2px;
-}
-
-form#new_actor_form button {
-	background: #555E89;
-	color: #ffffff;
-	height: 30px;
-	width: 80px;
-	margin: 5px 5px 5px 0px;
-	border: none;
-	outline: none;
-}
-
-/* turn elements*/
-#turn_container {
-	height: 90%;
-	float: left;
-	width: 80%;
-}
-
-#turn_header {
-	text-align: left;
-	padding-top: 10px;
-	height: 10%;
-}
-
-#turn_panel {
-	width: 100%;
-	height: 100%;
-	float: left;
-}
-
-.turn_instance {
-	background: #D0DAB7;
-	margin: 0px 0px 0px 10px;
-	height: 75px;
-	width: 80%;
-	left: 0px;
-	top: 0px;
-}
-
-div#selector_bar {
-	position: absolute;
-	display: block;
-	opacity: .6;
-	height: 90%;
-	width: 44px;
-	background-color: #BFD9F2;
-}
-
-.phase {
-	margin: 1px 5px 0px 5px;
-	background ;
-	opacity: ;
-	height: 30px;
+.phase_block {
+	height: 35px;
 	width: 40px;
 	display: inline-block;
+	outline: 1px solid #333;
 	text-align: center;
-	border: 2px solid grey;
+	margin-right: 10px;
+	background-color: #B3B597;
 }
 
-.in_phase {
-	background: #5C5F96;
-	color: #ffffff;
+li.generated {
+	margin-right: 18px;
 }
 
-.depressed {
-	background-color: #555E89;
-	color: white;
+/* le phase indicator bar */
+#indicator_bar {
+	height: 100%;
+	width: 42px;
+	position: fixed;
+	background-color: #1F7A7F;
+	opacity: .4;
+	z-index: 3;
+	display: block;
 }
-
-.hovering {
-	font-weight: bold;	
-}
-
