@@ -27,6 +27,7 @@
 			<button id="new_actor_button" class="button">
 				<span>New Actor</span>
 			</button>
+
 		</div><!-- /BUTTON_BAR -->
 		<br />
 
@@ -59,7 +60,7 @@
 					id="actor_type_radio"
 					value="player"> Player </input>
 					<br />
-					
+
 					<input type="radio"
 					name="actor_type"
 					id="actor_type_radio"
@@ -72,34 +73,116 @@
 			</form>
 		</div><!-- /NEW_FORM_PANEL -->
 	</div><!-- /CONTROL_PANEL -->
-	<div id="turn_panel">
-		<div class="header">
-			<h2>Turn by Phase</h2> 
-		</div>
-		<div id="selector_panel">
-			<ul id="selector">
-				<li id="selector_bar1" class="selector_bar"></li>
-				<li id="selector_bar2" class="selector_bar"></li>
-				<li id="selector_bar3" class="selector_bar"></li>
-				<li id="selector_bar4" class="selector_bar"></li>
-				<li id="selector_bar5" class="selector_bar"></li>
-				<li id="selector_bar6" class="selector_bar"></li>
-				<li id="selector_bar7" class="selector_bar"></li>
-				<li id="selector_bar8" class="selector_bar"></li>
-				<li id="selector_bar9" class="selector_bar"></li>
-				<li id="selector_bar10" class="selector_bar"></li>
-			</ul>
-		</div>
-		<!-- TESTING -->
-		<div class="turn_instance"><h3 id="player_title">francis crawford of lymond  2,8,10</h3><ul id="francis_crawford_of_lymond" class="turn"><li id="phase1" class="phase"></li><li id="phase2" class="phase in_phase"></li><li id="phase3" class="phase"></li><li id="phase4" class="phase"></li><li id="phase5" class="phase"></li><li id="phase6" class="phase"></li><li id="phase7" class="phase"></li><li id="phase8" class="phase in_phase"></li><li id="phase9" class="phase"></li><li id="phase10" class="phase in_phase"></li></ul></div><!-- /TESTING -->
-	</div><!-- /TURN_PANEL -->
-		
 
-	<div class="footer">
-		<a href="http://www.crystalkeep.com/7thsea/index.php">Crystal Keep</a>
-		<a href="http://www.crystalkeep.com/7thsea/rules/Blank%20Character.pdf">Character Sheet PDF</a>
-		<a href="http://google.com">A Helpful Link to Google </a>
-	</div><!-- /FOOTER -->
+	<div id="links_panel">
+		<ul id="links">
+			<li><a href="http://www.crystalkeep.com/7thsea/index.php">Crystal Keep</a></li>
+			<li><a href="http://www.crystalkeep.com/7thsea/rules/Blank%20Character.pdf">Character Sheet PDF</a></li>
+			<li><a href="http://google.com">A Helpful Link to Google </a></li>
+		</ul>
+	</div><!-- /LINKS_PANEL -->
+
+	<div id="turn_container">
+		<div id="turn_header">
+			<h1> The Turn by Phase </h1>
+		</div>
+
+		<div id="turn_panel">
+
+			<!-- TESTING -->
+			<div class="turn_instance"><h3 id="player_title">francis crawford of lymond  2,8,10</h3><ul id="francis_crawford_of_lymond" class="turn"><li id="phase1" class="phase"></li><li id="phase2" class="phase in_phase"></li><li id="phase3" class="phase"></li><li id="phase4" class="phase"></li><li id="phase5" class="phase"></li><li id="phase6" class="phase"></li><li id="phase7" class="phase"></li><li id="phase8" class="phase in_phase"></li><li id="phase9" class="phase"></li><li id="phase10" class="phase in_phase"></li></ul></div><!-- /TESTING -->
+
+			<!-- SELECTOR BAR -->
+			<div id="selector_bar">
+			</div>
+
+			<script> 
+
+$(document).ready(function () {
+		// Session object
+		var Session =  (function () {
+			// lol private
+			var phase = 1;
+			var turn = 1;
+
+			// public
+			return {
+getPhase: function () {
+return phase;
+},
+
+incrPhase: function () {
+if (phase < 10) {
+phase += 1;
+} else {
+alert('Phase 10! Next turn, please');
+}
+},
+
+decrPhase: function() {
+if (phase > 1) {
+	phase -= 1;
+} else {
+	alert('Phase 1! Previous turn, please');
+}
+},
+	};
+} () );
+
+//
+// Phase Bar Initialization
+//
+
+// selector bar div
+var bar = $("#selector_bar");
+
+// phase 1 div
+var phaseSelector = 'li#phase' + Session.getPhase();
+var initPhase = $(phaseSelector);
+
+var initBarPos = initPhase.position();
+
+
+// turn panel div
+var turnPanel = $('div#turn_panel');
+var tPPos = turnPanel.position();
+
+// update pos of selector bar relative to phase 1 
+bar.css('left', initBarPos.left + 5);
+bar.css('top', tPPos.top);
+
+console.log('updated bar pos', bar.position());
+
+// 
+// Next/Previous Phase Handlers
+//
+$('#next_phase').on('click', function () {
+		var bar = $('#selector_bar');
+		Session.incrPhase();
+
+		var phase = $('li#phase' + Session.getPhase());
+		console.log('phancy phase: ', phase);
+
+		var phasePos = phase.position();
+
+		bar.css('left', phasePos.left + 5);
+		});
+
+$('#prev_phase').on('click', function() {
+		var bar = $('#selector_bar');
+		Session.decrPhase();
+
+		var phase = $('li#phase' + Session.getPhase());
+
+		var phasePos = phase.position();
+
+		bar.css('left', phasePos.left + 5);
+		});
+});
+			</script>
+
+		</div><!-- /TURN_PANEL -->
+	</div><!-- /TURN_CONTAINER -->
 </div><!-- /CONTAINER -->
 </body>
 </html>

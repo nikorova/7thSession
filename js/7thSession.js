@@ -1,4 +1,40 @@
-function rollNKeep(r, k) {
+Array.prototype.sortNum = function () {
+	return this.sort(function (a,b) {return a-b});
+}
+// Session object
+		var Session =  (function () {
+			// lol private
+			var phase = 1;
+			var turn = 1;
+
+			// public
+			return {
+getPhase: function () {
+return phase;
+},
+
+incrPhase: function () {
+if (phase < 10) {
+phase += 1;
+} else {
+alert('Phase 10! Next turn, please');
+}
+},
+
+decrPhase: function() {
+if (phase > 1) {
+	phase -= 1;
+} else {
+	alert('Phase 1! Previous turn, please');
+}
+},
+	};
+} () );
+
+
+var app = app || {};
+
+app.rollNKeep = function (r, k) {
 	if (!k) {
 		var k = r;
 	}
@@ -11,14 +47,14 @@ function rollNKeep(r, k) {
 	}
 	
 	// pick keepers
-	kept = dice.sortNum().slice(r-k);
+	var kept = dice.sortNum().slice(r-k);
 
 	return kept;
 }
 
-function generateTurn(data) {
+app.generateTurn = function (data) {
 	// get init dice
-	var init = rollNKeep(data.panache);
+	var init = this.rollNKeep(data.panache);
 
 	$("#turn_panel").append(
 		'<div class="turn_instance">' +
@@ -41,50 +77,45 @@ function generateTurn(data) {
 	});
 }
 
-Array.prototype.sortNum = function () {
-	return this.sort(function (a,b) {return a-b});
-}
+app.init = (function () {
+	$(document).ready(function () {
+		$("a").hover(function () {
+			$(this).toggleClass("hovering");
+		});
 
+		$("button").mousedown(function () {
+			$(this).addClass("depressed");
+		});
 
+		$("button").mouseup(function () {
+			$(this).removeClass("depressed");
+		});
 
-$(document).ready(function () {
-	$("a").hover(function () {
-		$(this).toggleClass("hovering");
+		$("li.selector_bar").hide();
+		$("#selector").children().first().show();
+
+		$("#next_phase").on("click", function () {
+		});
+
+		$("#new_actor_button").on('click', function () {
+			$("#new_form_panel").show("150");
+		});
+
+		$("#new_actor_form").on('submit', function (e) {
+			e.preventDefault();
+
+			var form_data = [];
+			form_data.name = $("#name").val();
+			form_data.panache = $("#panache").val();
+
+			app.generateTurn(form_data);
+
+			$("#new_form_panel").hide();
+			$(this).each(function() {this.reset(); });
+		});
+
+		$("#dismiss_new_actor_form").on("click", function () {
+			$("#new_form_panel").hide();
+		});
 	});
-
-	$("button").mousedown(function () {
-		$(this).addClass("depressed");
-	});
-	
-	$("button").mouseup(function () {
-		$(this).removeClass("depressed");
-	});
-
-	$("li.selector_bar").hide();
-	$("#selector").children().first().show();
-
-	$("#next_phase").on("click", function () {
-	});
-
-	$("#new_actor_button").on('click', function () {
-		$("#new_form_panel").show("150");
-	});
-
-	$("#new_actor_form").on('submit', function (e) {
-		e.preventDefault();
-
-		var form_data = [];
-		form_data.name = $("#name").val();
-		form_data.panache = $("#panache").val();
-		
-		generateTurn(form_data);
-
-		$("#new_form_panel").hide();
-		$(this).each(function() {this.reset(); });
-	});
-
-	$("#dismiss_new_actor_form").on("click", function () {
-		$("#new_form_panel").hide();
-	});
-});
-
+}) ();

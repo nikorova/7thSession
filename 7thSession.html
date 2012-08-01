@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<title>7thSession</title>
+	<script type="application/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="application/javascript" src="js/session.js"></script>
+	<style> 
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background-color: #D1C396;
+			font-family: monospace;
+			font-size: 14px;
+		}
+
+		#title_splash{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			font-size: 38px;
+			opacity: .5;
+			text-align: right;
+			z-index: -1;
+		}
+
+		/* le control panel */
+		#control_panel {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 0;
+			width: 220px;
+			height: 100%;
+			color: ;
+			background-color: #261507;
+			border: 1px solid #333;
+			z-index: -2;
+		}
+
+		button {
+			height: 34px;
+			width: 210px;
+			background-color: #1C6A6F;
+			font-size: 16px;
+			font-weight: bold;
+			margin-top: 5px;
+			border-color: #185359;
+			border-width: 1px;
+			border-left: none;
+			border-top: none;
+		}
+		
+		#next_phase {
+			text-align: right;
+		}
+
+		#prev_phase {
+			text-align: left;
+		}
+
+		#new_actor {
+			text-align: center;
+		}
+	
+		
+		/* le phase indicator bar */
+		#indicator_bar {
+			height: 80%;
+			width: 42px;
+			position: absolute;
+			background-color: #BFD9F2;
+			opacity: .6;
+			display: none;
+		}
+		
+		/* le player div */
+		.player {
+			margin-right: 40px;
+			margin-left: 240px; 
+			margin-bottom: 10px;
+			margin-top: 10px;
+			min-width: 620px;
+			max-width: 800px;
+			border: 1px solid #333;
+			padding: 0px 10px;
+			background-color: #DAEDE2;
+		}
+		
+		.phase_block {
+			height: 35px;
+			width: 40px;
+			display: inline-block;
+			outline: 1px solid #333;
+			text-align: center;
+			margin-right: 10px;
+			background-color: #B3B597;
+		}
+	</style>
+
+</head>
+
+<body>
+
+<div id="control_panel"> 
+	<button id="next_phase">
+		Next Phase
+	</button>
+	<button id="prev_phase">
+		Prev Phase
+	</button>
+	<button id="new_actor">
+		New Actor	
+	</button>
+</div>
+
+<div class="player">
+	<h3>Yar here's a player</h3>
+	<ul class="phase_list">
+		<li id="1" class="phase_block">1</li>
+		<li id="2" class="phase_block">2</li>
+		<li id="3" class="phase_block">3</li>
+		<li id="4" class="phase_block">4</li>
+		<li id="5" class="phase_block">5</li>
+		<li id="6" class="phase_block">6</li>
+		<li id="7" class="phase_block">7</li>
+		<li id="8" class="phase_block">8</li>
+		<li id="9" class="phase_block">9</li>
+		<li id="10" class="phase_block">10</li>
+	</ul>
+</div>
+
+<div id="indicator_bar">
+</div>
+
+
+<div id="title_splash">
+	<h1>7thSession</h1>
+</div>
+
+</body>
+
+</html>

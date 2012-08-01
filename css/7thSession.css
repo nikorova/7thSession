@@ -1,37 +1,40 @@
+html { 
+	height: 100%;
+}
+
 body {
 	background-color: #6E7E7D;	
 	font-family: monospace; 
 	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+ul#links {
+	list-style-image: none;
+	list-style-type: none;
+}
+
+#links_panel {
+	position: absolute;
+	left: 65;
+	bottom: 0;
+	width: 20%;
 }
 
 #container {
 	margin: 20px auto 0px auto;
 	background-color: #7B9386;	
-	width: 1024px;
-	height: 700px;
+	width: 90%;
+	height: 100%;
 	box-shadow: 0 0 2px 2px #192318;
-}
-
-.header {
-	width: 100%;
-	height 12%;
-	padding: 5px;
-	font-size: 18px;
-	text-align: center;
-}
-
-.footer {
-	width: 100%;
-	height 10%;
-	padding: 5px;
-	float: left;
 }
 
 /* control panel */
 #control_panel {
 	width: 20%;
-	height: 90%;
-	margin: auto;
+	height: 80%;
 	float: left;
 }
 
@@ -113,10 +116,22 @@ form#new_actor_form button {
 	outline: none;
 }
 
-/* turn panel */
-#turn_panel {
-	width: 80%;
+/* turn elements*/
+#turn_container {
 	height: 90%;
+	float: left;
+	width: 80%;
+}
+
+#turn_header {
+	text-align: left;
+	padding-top: 10px;
+	height: 10%;
+}
+
+#turn_panel {
+	width: 100%;
+	height: 100%;
 	float: left;
 }
 
@@ -128,38 +143,25 @@ form#new_actor_form button {
 	left: 0px;
 	top: 0px;
 }
-div#selector_panel {
-	position: relative;
-	top: 0px;
-	left: 0px;
-	height: 100%;
-	padding: 0px 0px 0px 45px;	
+
+div#selector_bar {
+	position: absolute;
+	display: block;
+	opacity: .6;
+	height: 90%;
+	width: 44px;
+	background-color: #BFD9F2;
 }
 
-ul#selector {
-	padding: 0px;
-	margin: 0px;
-	height: 100%;
-	list-style: none;
-}
-
-li.selector_bar {
-	margin: 0px 5px 0px 5px;
-	background: #D7EAF8;
-	opacity: 0.5;
-	height: 100%;
-	width: 40px;  
-	display: inline-block;
-}
 .phase {
-	margin: 0px 8px 0px 8px;
+	margin: 1px 5px 0px 5px;
 	background ;
 	opacity: ;
-	height: 26px;
+	height: 30px;
 	width: 40px;
 	display: inline-block;
 	text-align: center;
-	border: 1px solid grey;
+	border: 2px solid grey;
 }
 
 .in_phase {
