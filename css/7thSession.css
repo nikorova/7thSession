@@ -61,6 +61,45 @@ body {
 	border-right: 12px solid #352110;
 }
 
+/* inner neener def league badge */
+#inet_def img{
+	height: 70px;
+	width: 70px;
+	position: fixed;
+	left: 10px;
+	bottom: 2px;
+	opacity: 0.1;
+	z-index: 3;
+	border: 1px solid blue;
+}
+
+/* le halp */
+#halp {
+	margin-top: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	color: #D1C396;
+	position: absolute;
+	bottom: 130px;
+}
+
+span.dcap {
+	float: left;
+	position: relative;
+	font-size: 400%;
+	margin-right: 3px;
+	padding: 0px;
+	padding-right: 2px;
+	line-height: 0.9em;
+}
+
+#halp strong {
+	line-height: 0.9em;
+}
+
+#halp p {
+}
+
 /* le control panel */
 #control_panel {
 	position: fixed;
@@ -70,12 +109,11 @@ body {
 	padding-top: 40px;
 	width: 220px;
 	height: 100%;
-	color: ;
 	background-color: #261507;
 	border-right: 12px solid #352110;
 	box-shadow: 0px 0px 0px #070401; 
-
 }
+
 
 #actor_form_submit, button {
 	height: 40px;
@@ -150,7 +188,6 @@ body {
 #new_actor {
 	text-align: center;
 }
-
 
 /* le actor div */
 .actor h3 {
